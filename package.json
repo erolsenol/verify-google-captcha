@@ -6,7 +6,8 @@
   "license": "ISC",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "cross-env NODE_ENV=production PORT=443 node server.js",
+    "dev": "cross-env NODE_ENV=development node server.js",
     "test": "jest --detectOpenHandles"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^27.4.7",
     "supertest": "^6.2.2"
   },
