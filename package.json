@@ -6,7 +6,7 @@
   "license": "ISC",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production PORT=443 node server.js",
+    "start": "cross-env NODE_ENV=production PORT=8443 node server.js",
     "dev": "cross-env NODE_ENV=development node server.js",
     "test": "jest --detectOpenHandles"
   },
