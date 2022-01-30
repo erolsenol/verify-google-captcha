@@ -1,0 +1,26 @@
+{
+  "name": "verify-google-captcha",
+  "version": "1.0.0",
+  "description": "Verify Google Captcha",
+  "author": "Erol Senol",
+  "license": "ISC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erolsenol/verify-google-captcha.git"
+  },
+  
+  "bugs": {
+    "url": "https://github.com/erolsenol/verify-google-captcha/issues"
+  },
+  "homepage": "https://github.com/erolsenol/verify-google-captcha#readme"
+}
