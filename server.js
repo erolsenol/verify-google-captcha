@@ -18,15 +18,19 @@ app.use(express.json());
 
 app.use('/', emailHandler);
 
-const sslOptions = {
-  pfx: fs.readFileSync('./ssl/last.pfx'),
-  passphrase: process.env.PASSPHRASE,
-};
+if (process.env.NODE_ENV !== 'test') {
+  const sslOptions = {
+    pfx: fs.readFileSync('./ssl/last.pfx'),
+    passphrase: process.env.PASSPHRASE,
+  };
+  
+  const httpsServer = https.createServer(sslOptions, app);
+  
+  const port = (process.env.PORT || 443);
+  
+  httpsServer.listen(port, () => {
+    console.log(`HTTPS Server running on port ${port}`);
+  });
+}
 
-const httpsServer = https.createServer(sslOptions, app);
-
-const port = (process.env.PORT || 443);
-
-httpsServer.listen(port, () => {
-  console.log(`HTTPS Server running on port ${port}`);
-});
+module.exports = app;
