@@ -3,20 +3,23 @@ const fs = require("fs");
 const express = require('express');
 const cors = require("cors");
 const dotenv = require("dotenv");
+const sendgrid = require("@sendgrid/mail");
 
 dotenv.config();
 
-const googleCaptchaHandler = require('./verify-google-captcha');
+sendgrid.setApiKey(process.env.SG_API_KEY);
+
+const emailHandler = require('./email-handler');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/', googleCaptchaHandler);
+app.use('/', emailHandler);
 
 const sslOptions = {
-  pfx: fs.readFileSync("./ssl/last.pfx"),
+  pfx: fs.readFileSync('./ssl/last.pfx'),
   passphrase: process.env.PASSPHRASE,
 };
 
